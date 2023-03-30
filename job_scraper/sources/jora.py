@@ -27,7 +27,7 @@ class Jora:
             job_id = i.get("id")
             job_link = BASE_URL + raw_job_link.get("href")
             job_company = i.find("span", class_="job-company").get_text().strip()
-            job_location = i.find("a", class_="job-location").get("href")
+            job_location = i.find("a", class_="job-location").get_text().strip()
             job_description = i.find("div", class_="job-abstract").get_text().strip()
 
             try:
