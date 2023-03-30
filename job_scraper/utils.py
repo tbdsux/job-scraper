@@ -1,7 +1,7 @@
 from typing import Any, Dict
 
 import requests
-import undetected_chromedriver as uc
+# import undetected_chromedriver as uc
 from bs4 import BeautifulSoup
 from cloudscraper import create_scraper
 
@@ -33,15 +33,15 @@ def c_request(url: str, headers: Dict[str, Any] = {}) -> BeautifulSoup:
     return BeautifulSoup(r.text, "lxml")
 
 
-def u_request(url: str) -> BeautifulSoup:
-    options = uc.ChromeOptions()
-    options.headless = True
+# def u_request(url: str) -> BeautifulSoup:
+#     options = uc.ChromeOptions()
+#     options.headless = True
 
-    driver = uc.Chrome(
-        options=options, version_main=110  # my own version of chrome (TODO: update)
-    )
+#     driver = uc.Chrome(
+#         options=options, version_main=110  # my own version of chrome (TODO: update)
+#     )
 
-    driver.get(url)
-    src = driver.page_source
+#     driver.get(url)
+#     src = driver.page_source
 
-    return BeautifulSoup(src, "lxml")
+#     return BeautifulSoup(src, "lxml")
