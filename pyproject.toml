@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "phjob_scraper"
-version = "0.1.1"
+version = "0.1.2"
 description = "Job Scraper for jobs from the Philippines from various job posting websites as a python library."
 authors = ["Joshue Abance (tbdsux) <iamcoderx@gmail.com>"]
 readme = "README.md"
