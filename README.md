@@ -22,6 +22,19 @@ python3 -m pip install phjob-scraper
       print(i["title"])
   ```
 
+- **[Indeed](https://ph.indeed.com)**
+
+  Note: frequent usage within a few duration of time might raise CloudflareError from `cloudscraper`
+
+  ```python
+  from job_scraper import Indeed
+
+  src = Indeed()
+
+  results = src.search("developer", location="baguio")
+  print(results)
+  ```
+
 ##
 
 **@tbdsux | &copy; 2023**

@@ -1,6 +1,7 @@
 from typing import Any, Dict
 
 import requests
+
 # import undetected_chromedriver as uc
 from bs4 import BeautifulSoup
 from cloudscraper import create_scraper
@@ -10,27 +11,28 @@ default_headers = {
 }
 
 
-def request(url: str, headers: Dict[str, Any] = {}) -> BeautifulSoup:
+def request(
+    url: str, headers: Dict[str, Any] = {}, parser: str = "lxml"
+) -> BeautifulSoup:
     r = requests.get(url, headers=default_headers | headers)
 
     if not r.ok:
         raise Exception("Request is not ok.")
 
-    return BeautifulSoup(r.text, "lxml")
+    return BeautifulSoup(r.text, parser)
 
 
-def c_request(url: str, headers: Dict[str, Any] = {}) -> BeautifulSoup:
-    sess = requests.Session()
-    sess.headers = default_headers | headers
+def c_request(
+    url: str, headers: Dict[str, Any] = {}, parser: str = "lxml"
+) -> BeautifulSoup:
+    scraper = create_scraper()
 
-    scraper = create_scraper(sess=sess)
-
-    r = scraper.get(url)
+    r = scraper.get(url, headers=default_headers | headers)
 
     if not r.ok:
         raise Exception("Request is not ok.")
 
-    return BeautifulSoup(r.text, "lxml")
+    return BeautifulSoup(r.text, parser)
 
 
 # def u_request(url: str) -> BeautifulSoup:
