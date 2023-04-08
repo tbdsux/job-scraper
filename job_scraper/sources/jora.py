@@ -17,7 +17,7 @@ class Jora:
         r = c_request(url)
 
         container = r.find("div", id="jobresults")
-        all_results = container.find_all("article", class_="job-card")
+        all_results = container.find_all(class_="job-card")
         results: List[SearchResult] = []
 
         for i in all_results:
