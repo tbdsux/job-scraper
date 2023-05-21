@@ -41,11 +41,11 @@ python3 -m pip install phjob-scraper
 
 - **[Kalibrr](https://www.kalibrr.com/)**
 
-  Note: job `description` is currently not available / cannot be scraped
+  Note: job `description` is currently not available / cannot be scraped and custom `location` param cannot be set in `.search()` function
 
   Different json `company`
 
-  ```json
+  ```js
   // company structure
   "company": {
     "name": "name of company",
@@ -60,7 +60,7 @@ python3 -m pip install phjob-scraper
 
     src = Kalibrr()
 
-    results = src.search("developer", location="baguio")
+    results = src.search("developer")
     print(results)
     ```
 
