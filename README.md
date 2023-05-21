@@ -12,28 +12,57 @@ python3 -m pip install phjob-scraper
 
 - **[Jora](https://ph.jora.com)**
 
-  ```python
-  from job_scraper import Jora
+  - Usage
 
-  src = Jora()
-  results = src.search("quality assurance", location="manila")
+    ```python
+    from job_scraper import Jora
 
-  for i in results:
-      print(i["title"])
-  ```
+    src = Jora()
+    results = src.search("quality assurance", location="manila")
+
+    for i in results:
+        print(i["title"])
+    ```
 
 - **[Indeed](https://ph.indeed.com)**
 
   Note: frequent usage within a few duration of time might raise CloudflareError from `cloudscraper`
 
-  ```python
-  from job_scraper import Indeed
+  - Usage
 
-  src = Indeed()
+    ```python
+    from job_scraper import Indeed
 
-  results = src.search("developer", location="baguio")
-  print(results)
+    src = Indeed()
+
+    results = src.search("developer", location="baguio")
+    print(results)
+    ```
+
+- **[Kalibrr](https://www.kalibrr.com/)**
+
+  Note: job `description` is currently not available / cannot be scraped
+
+  Different json `company`
+
+  ```json
+  // company structure
+  "company": {
+    "name": "name of company",
+    "verified": true // true / false
+  }
   ```
+
+  - Usage
+
+    ```python
+    from job_scraper import Kalibrr
+
+    src = Kalibrr()
+
+    results = src.search("developer", location="baguio")
+    print(results)
+    ```
 
 ##
 
